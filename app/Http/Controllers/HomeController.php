@@ -130,14 +130,13 @@ class HomeController extends Controller
                     return view('verifypayment', compact('data'));
                 } else {
                     $errorcode=$result['errors']['code'];
-                    echo "<div style='font-size: xx-large; color: darkred; background-color: rgba(255,113,79,0.67);text-align: center;'> تراکنش ناموفق با کد :$errorcode</div>
-<a style='font-size: xx-large' href='/'> بازگشت</a>";
+                    echo "<div style='font-size: xx-large; color: darkred; background-color: rgba(255,113,79,0.67);text-align: center;'> تراکنش ناموفق با کد :$errorcode</div>";
+
 
                 }
             }else {
                 $errorcode=$result['errors']['code'];
-                echo "<div style='font-size: xx-large; color: darkred; background-color: rgba(255,113,79,0.67);text-align: center;'> تراکنش ناموفق با کد :$errorcode</div>
-<a  style='font-size: xx-large' href='/'> بازگشت</a>";
+                echo "<div style='font-size: xx-large; color: darkred; background-color: rgba(255,113,79,0.67);text-align: center;'> تراکنش ناموفق با کد :$errorcode</div>";
 
             }
 

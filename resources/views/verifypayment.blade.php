@@ -14,6 +14,6 @@
         <p>{{ $data }}شناسه تراکنش : </p>
 
     </div>
-    <a class="btn btn-primary btn-block" href='/'> بازگشت </a>
+
 </div>
 
