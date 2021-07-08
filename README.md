@@ -1,12 +1,11 @@
 
 
-## پیشنیازها
+## requirements
 
-برای اجرای اپلیکیشن در صورتی که پکیجهای ext-json و ext-curl در composer.json نصب نشده بودند حتما این پکیجها را نصب کنید 
+if ext-curl and ext-json package didnt installed in composer.json you should install these package
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## نوضیحات
+## description
 
-این نمونه کد بر پایه نسخه ۸ لاراول توسعه داده شده است و نسخه php 7.4
+this sample code developed for laravel 8 framework and php 7.4
 
