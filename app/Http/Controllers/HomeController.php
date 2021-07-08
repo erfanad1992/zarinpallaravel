@@ -7,27 +7,40 @@ use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
-    public $amount=1100;
+
     public  $merchantid="cfa83c81-89b0-4993-9445-2c3fcd323455";
     //
+
+
+
     public  function index(){
 
         return 'hi';
     }
 
+
+    public function getAmountFromView(Request $request){
+        $name = $request->input('fullname');
+        $amountvalue= $request->amount;
+
+
+        return $amountvalue;
+    }
+
+
+
     public  function payment(Request $request){
 
-
+        $request->session()->put('amount', $request->amount);
         $name = $request->input('fullname');
-
+         $amountValue = $this->getAmountFromView($request);
         $mobile = $request->mobile;
         $email = $request->email;
-        $this->amount= $request->amount;
-        $description = $request->description;
 
+        $description = $request->description;
         if($mobile =="" || $email ==""){
             $data = array("merchant_id" =>$this->merchantid,
-                "amount" => $this->amount,
+                "amount" => $amountValue,
                 "callback_url" => "http://127.0.0.1:8000/verifypayment",
                 "description" => $description,
 
@@ -36,7 +49,7 @@ class HomeController extends Controller
         }else {
 
             $data = array("merchant_id" => $this->merchantid,
-                "amount" => $this->amount,
+                "amount" => $amountValue,
                 "callback_url" => "http://127.0.0.1:8000/verifypayment",
                 "description" => $description,
                 "metadata" => [ "email" => $email,"mobile"=>$mobile],
@@ -83,10 +96,11 @@ class HomeController extends Controller
     }
 
     public  function verifypayment(Request $request){
-
+        $name = $request->input('fullname');
         $Authority = $_GET['Authority'];
+        $amountValue= $request->session()->get('amount');
 
-        $data = array("merchant_id" => $this->merchantid, "authority" => $Authority, "amount" => $this->amount);
+        $data = array("merchant_id" => $this->merchantid, "authority" => $Authority, "amount" => $amountValue);
         $jsonData = json_encode($data);
         $ch = curl_init('https://api.zarinpal.com/pg/v4/payment/verify.json');
         curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v4');

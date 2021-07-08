@@ -19,6 +19,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/payment', 'HomeController@payment');
 Route::get('/verifypayment', 'HomeController@verifypayment');
+Route::post('/verifypayment', 'HomeController@verifypayment')->name("payment.send");
 Route::post('/payment', 'HomeController@payment')->name("payment.send");
 Route::get('/',function (){
 
