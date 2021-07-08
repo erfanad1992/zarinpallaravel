@@ -26,7 +26,7 @@
             <input type="password" id="password" name="password" placeholder="کلمه عبور" value="{{ old('password') }}"
                    required>--}}
 
-            <input type="text" id="mobile" name="mobile" placeholder="تلفن همراه" value="{{ old('mobile') }}">
+            <input type="number" id="mobile" name="mobile" placeholder="تلفن همراه" value="{{ old('mobile') }}">
 
             <input type="email" id="email" name="email" placeholder="آدرس ایمیل" value="{{ old('email') }}">
 
